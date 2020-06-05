@@ -7,8 +7,8 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const apiRoutes = require("./routes/user-routes");
-
+const userRoutes = require("./routes/user-routes");
+const postRoutes = require("./routes/post-routes");
 
 // Bodyparser middleware
 app.use(
@@ -18,10 +18,7 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// DB Config
 const db = require("./config/keys").mongoURI;
-
-// Connect to MongoDB
 mongoose
   .connect(
     db,
@@ -33,19 +30,14 @@ mongoose
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-// Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-// Send every request to the React app
-
 // Passport middleware
 app.use(passport.initialize());
-// Passport config
 require("./config/passport")(passport);
 // Routes
-app.use(apiRoutes);
+app.use(userRoutes, postRoutes);
 
 // Define any API routes before this runs
 app.get("*", function(req, res) {

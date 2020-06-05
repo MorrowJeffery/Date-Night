@@ -1,14 +1,14 @@
 const router = require("express").Router();
-const controller = require('../../controllers/booksController');
+const controller = require('../controllers/postController');
 
-router.route("/api/books")
-.get(controller.findAll)
-.post(controller.create)
+router.route("/api/posts")
+.get(controller.findAllPosts)
+.post(controller.createPost)
 
-router.route("api/books/:id")
-.get(controller.findById)
-.put(controller.update)
-.delete(controller.remove)
+router.route("api/posts/:id")
+//.get(controller.findById)
+//.put(controller.update)
+.delete(controller.deletePost)
 
 
 

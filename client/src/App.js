@@ -13,6 +13,8 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import PostsPage from "./components/postPages/allPostsPage";
+import Dropzone from "./components/imageManipulation/dropzone";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -40,11 +42,13 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
+            <Route exact path="/test" component={Dropzone} />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/posts" component={PostsPage} />
             </Switch>
           </div>
         </Router>

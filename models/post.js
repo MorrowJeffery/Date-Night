@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 var postSchema = new Schema({
     image: {
         type: String,
-        required: true,
         default: "https://techexclusive.net/wp-content/uploads/2018/01/Royalty-Free-Images.jpg"
     },
     description: {
