@@ -7,7 +7,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Navbar from "./components/layout/Navbar";
+import AppNav from "./components/Navbar/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -15,6 +15,9 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import PostsPage from "./components/postPages/allPostsPage";
 import Dropzone from "./components/imageManipulation/dropzone";
+import savePostPage from "./components/postPages/newPostPage";
+import PostDetail from "./components/postPages/postDetail";
+import MyPosts from "./components/postPages/myPosts";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -41,7 +44,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
+            <AppNav />
             <Route exact path="/test" component={Dropzone} />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
@@ -49,6 +52,9 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute exact path="/posts" component={PostsPage} />
+              <PrivateRoute exact path="/submitpost" component={savePostPage} />
+              <PrivateRoute exact path="/myposts" component={MyPosts} />
+              <PrivateRoute path="/post/" component={PostDetail} />
             </Switch>
           </div>
         </Router>

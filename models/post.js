@@ -20,6 +20,11 @@ var postSchema = new Schema({
         ref: "User",
         required: true
     }],
+    poster_name: {
+        type: String,
+        required: true,
+        trim: true
+    },
     date_created: {
         type: Date,
         default: Date.now,

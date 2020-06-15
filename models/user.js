@@ -32,7 +32,7 @@ var userSchema = new Schema({
         required: true,
         trim: true,
     },
-    fav_posts: [{
+    posts: [{
         type: Schema.Types.ObjectId,
         ref: "Post"
     }],

@@ -1,0 +1,11 @@
+.dropzonebox {
+    background-color: #1ca6ad;
+}
+
+.dropzonetext {
+    color: black;
+}
+
+.dropzonetext:hover {
+    color: white;
+}

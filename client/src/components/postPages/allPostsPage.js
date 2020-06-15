@@ -1,77 +1,50 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Jumbotron from "../Jumbotron";
 import { List, ListItem } from "../List";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
-import { getPosts } from "../../actions/postActions";
+import { getPosts, setCurrentPost } from "../../actions/postActions";
+import './posts.css';
 
 class allPosts extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         posts: []
-    //     };
-    //   }
 
   componentDidMount() {
       this.props.getPosts();      
     }
 
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
-  };
-  backToDash = e => {
-    e.preventDefault();
-    window.location.href = "./dashboard";
-  };
+  onPostClick(id) {
+    this.props.setCurrentPost(id);
+  }
 
   render() {
-    const { user } = this.props.auth;
     return (
-        <div className="container">
+        <div className="container outerbox">
           <div className="row">
             <div className="landing-copy col s12">
-              <h4>
-                <b>Hey there,</b> {user.firstName}
-                <p className="">
-                  You are logged in!
-                </p>
-              </h4>
-              <button
-                onClick={this.onLogoutClick}
-                className="btn btn-primary"
-              >
-                Logout
-              </button>
-              <button
-                onClick={this.backToDash}
-                className="btn btn-primary"
-              >
-                Back to Dashboard
-              </button>
-            <div className="col">
-              <Jumbotron>
+            <div className="divcol1">
                   <h1>Posts: </h1>
-                </Jumbotron>
                 {this.props.posts.length ? (
-                  <List>
-                    {this.props.posts.map((post, i) => (
-                      <ListItem key={`${post._id}`} >
-                          <img src={post.image} />
-                          <p>{post._id}</p>
-                        <a href={"/api/posts/:" + post._id}>
-                          <strong>
-                            {post.post_name}
-                          </strong>
-                          <p>
-                            {post.description}
-                          </p>
-                        </a>
-                      </ListItem>
+                  <ul>
+                    {this.props.posts.map((post) => (
+                      <li key={`${post._id}`} >
+                          <div className="container eachpostbox">
+                          <div className="nameholderdiv">
+                                <strong>
+                                    {post.post_name}
+                                </strong>
+                              </div>
+                            <div className="row">
+                              <Link to="/post/test" onClick={ () => {this.onPostClick(post._id)}}><img className="postimage" src={post.image} alt="" /></Link>
+                              <p className="desctext"> {post.description} </p>
+                            </div>
+                            <div className="row">
+                              <p className="postername">{post.poster_name}</p>
+                            </div>
+                          </div>
+                      </li>
                     ))}
-                  </List>
+                  </ul>
                 ) : (
                   <h3>No Results to Display</h3>
                 )}
@@ -85,16 +58,15 @@ class allPosts extends Component {
 }
 
 allPosts.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  posts: state.posts
+  posts: state.postData.posts
 });
 
 export default connect(
   mapStateToProps,
-  { logoutUser, getPosts }
+  { getPosts, setCurrentPost }
 )(allPosts);

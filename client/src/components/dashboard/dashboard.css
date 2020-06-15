@@ -1,0 +1,21 @@
+.mainboxdiv {
+    text-align: center;
+    background: #0b7d99;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 20px;
+}
+
+.container {
+    background-color: #68749736;
+}
+
+.logoutbtn, .viewpostsbtn {
+    background-color: #1ca6ad;
+    margin: 5px;
+    border: 0px;
+}
+
+.viewpostsbtn:hover, .logoutbtn:hover {
+    background-color: #6e0a4b;
+}

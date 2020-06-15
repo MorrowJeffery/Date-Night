@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import "./login.css";
 
 class Login extends Component {
   constructor() {
@@ -54,11 +55,8 @@ class Login extends Component {
 
     return (
       <div className="container">
-        <div style={{ marginTop: "4rem" }} className="row">
+        <div className="row row1">
           <div className="col s8 offset-s2">
-            <Link to="/" className="btn">
-               Back to home
-            </Link>
             <div className="col s12">
               <h4>
                 <b>Login</b> below
@@ -79,7 +77,7 @@ class Login extends Component {
                     invalid: errors.username || errors.usernamenotfound
                   })}
                 />
-                <label htmlFor="username">Username</label>
+                <label className="uplabel" htmlFor="username">Username</label>
                 <span className="red-text">
                   {errors.username}
                   {errors.usernamenotfound}
@@ -97,7 +95,7 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <label className="uplabel" htmlFor="password">Password</label>
                 <span className="red-text">
                   {errors.password}
                   {errors.passwordincorrect}

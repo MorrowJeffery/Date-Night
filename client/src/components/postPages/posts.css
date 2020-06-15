@@ -1,0 +1,45 @@
+ul {
+    list-style-type: none;
+    padding-left: 0px
+}
+
+.eachpostbox {
+    background-color: #0b7d9970;
+    margin: 1%;;
+    text-align: left;
+}
+
+.nameholderdiv {
+    margin: 1%;
+}
+
+.outerbox {
+    background-color: rgba(128, 128, 128, 0.192);
+    align-items: center;
+
+}
+
+.divcol1 {
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 22px;
+}
+
+.backtobtn {
+    text-align: left;
+    float: left;
+}
+
+.desctext {
+    margin-left: 3%;
+    margin-top: 1%;
+}
+
+.postername {
+    margin-top: 1%;
+    margin-left: 1%;
+}
+
+.postimage {
+    margin-left: 5%;
+}

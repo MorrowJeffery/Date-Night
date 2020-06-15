@@ -3,8 +3,11 @@ import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import Jumbotron from '../Jumbotron';
 import Keys from './imageKeys';
+import { connect } from "react-redux";
+import { savePic } from '../../actions/postActions';
+import './dropzone.css';
 
-export default class DropzoneForm extends React.Component {
+class DropzoneForm extends React.Component {
     constructor(props) {
         super(props);
     
@@ -32,47 +35,56 @@ export default class DropzoneForm extends React.Component {
           }
     
           if (response.body.secure_url !== '') {
-            this.setState({
-              uploadedFileCloudinaryUrl: response.body.secure_url
-            });
+            this.props.savePic(response.body.secure_url);
           }
         });
     }
 
 
     render() {
-        return (
-            <>
 
-            <div>
-            <div className="FileUpload">
-            <Dropzone 
-            accept="image/*" 
-            multiple={false} 
-            onDrop={this.onImageDrop.bind(this)}
-            >
-            {({getRootProps, getInputProps}) => (
-                <section>
-                <div {...getRootProps()}>
-                    <input {...getInputProps()} />
-                    <Jumbotron>
-                        <p>Drag 'n' drop some files here, or click to select files</p>
-                    </Jumbotron>
+        if(this.props.savedPic === "") {
+            return (
+                <div className="outerbox">
+                    <div className="FileUpload dropzonebox">
+                        <Dropzone 
+                        accept="image/*" 
+                        multiple={false} 
+                        onDrop={this.onImageDrop.bind(this)}
+                        >
+                        {({getRootProps, getInputProps}) => (
+                            <section>
+                            <div {...getRootProps()}>
+                                <input {...getInputProps()} />
+                                <Jumbotron>
+                                    <p className="dropzonetext">Drag 'n' drop a picture here, or click to select picture</p>
+                                </Jumbotron>
+                            </div>
+                            </section>
+                        )}
+                        </Dropzone>
+                    </div>
                 </div>
-                </section>
-            )}
-            </Dropzone>
-            </div>
-      
-            <div>
-              {this.state.uploadedFileCloudinaryUrl === '' ? null :
-              <div>
-                <p>{this.state.uploadedFile.name}</p>
-                <img src={this.state.uploadedFileCloudinaryUrl} />
-              </div>}
-            </div>
-          </div>
-          </>
-        )
+            )
+        }
+
+        else {
+            return (
+                <div>
+                    <img src={this.props.savedPic} alt=""/>
+                </div>
+            )
+        }
+
     }
 }
+  
+  const mapStateToProps = state => ({
+    savedPic: state.postData.heldPic
+  });
+  
+  export default connect(
+    mapStateToProps,
+    { savePic }
+  )(DropzoneForm);
+  

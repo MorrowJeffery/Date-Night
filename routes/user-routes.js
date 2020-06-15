@@ -10,6 +10,12 @@ const validateLoginInput = require("../validation/login");
 
 const User = require("../models/user");
 
+router.put("/api/update/:userID/:postID", (req,res) => {
+  User.updateOne({ _id: req.params.userID }, {$push: {posts: req.params.postID}})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+})
+
 // Public route
 router.post("/api/register", (req, res) => {
   // Form validation
