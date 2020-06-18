@@ -21,9 +21,9 @@ class PostDetail extends Component {
             <div className="col">
                 {this.props.posts.length ? (
                     <div>
-                       <h1>{this.props.posts[0].post_name}</h1>
-                        <img src={this.props.posts[0].image} alt=""/>
-                        <p className="poster"> {this.props.posts[0].poster_name} </p>
+                       <h1 className="nameofpost">{this.props.posts[0].post_name}</h1>
+                        <img className="postimage" src={this.props.posts[0].image} alt=""/>
+                        <p className="postername"> {this.props.posts[0].poster_name} </p>
                         <p> {this.props.posts[0].description} </p>
                     </div>
                 ) : (

@@ -56,7 +56,7 @@ class Settings extends Component {
                         }
                         <p className="red"> {this.state.errors} </p>
 
-                        <button onClick={ () => {this.setState({ changePassword: true })}}>Change Password</button>
+                        <button className="changepwbtn" onClick={ () => {this.setState({ changePassword: true })}}>Change Password</button>
                         {this.state.changePassword ? ( 
                             <div>
                                 <form>
@@ -87,7 +87,7 @@ class Settings extends Component {
                                         />
                                         <label htmlFor="confirmNewPW">Confirm New Password</label>
                                     </div>
-                                    <h3 className="btn btn-primary" onClick={ () => {this.onSubmit()}}>Submit</h3>
+                                    <h3 className="btn loginbtn changepwbtn" onClick={ () => {this.onSubmit()}}>Submit</h3>
                                 </form>
                             </div>
                         ) : (

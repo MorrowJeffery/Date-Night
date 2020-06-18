@@ -70,7 +70,7 @@ class Register extends Component {
               </h4>
 
               <p className="grey-text text-darken-1">
-                Already have an account? <Link to="/login">Log in</Link>
+                Already have an account? <Link className="register" to="/login">Log in</Link>
               </p>
       
             </div>
@@ -185,7 +185,7 @@ class Register extends Component {
               <div className="col s12">
                 <button
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn loginbtn"
                 >
                   Sign up
                 </button>

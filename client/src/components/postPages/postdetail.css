@@ -22,6 +22,24 @@ img {
     border-radius: 5px;
 }
 
+.postimage {
+    width: 250px;
+}
+
+.nameofpost {
+    font-size: 25px;
+}
+
 .backtoposts:hover {
     color: white;
 }
+
+@media only screen and (min-width: 700px) {
+    .postimage {
+        width: 500px;
+    }
+    .postername {
+        margin-right: 430px;
+        font-size: 12px;
+    }
+  }
