@@ -48,7 +48,7 @@ router.post("/api/register", (req, res) => {
           newUser
             .save()
             .then(user => res.json(user))
-            .catch(err => console.log(err));
+            .catch(err => res.json(err));
         });
       });
     }
@@ -118,7 +118,8 @@ router.post("/api/login", (req, res) => {
         const payload = {
           id: user.id,
           firstName: user.first_name,
-          lastName: user.last_name
+          lastName: user.last_name,
+          username: user.username
         };
 
         // Sign token

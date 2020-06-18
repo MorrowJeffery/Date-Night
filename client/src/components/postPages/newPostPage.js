@@ -29,7 +29,7 @@ class newPost extends Component {
             post_name: this.state.dateName,
             description: this.state.dateDesc,
             poster: this.props.auth.user.id,
-            poster_name: (this.props.auth.user.firstName + " " + this.props.auth.user.lastName),
+            poster_name: (this.props.auth.user.username),
           };
           this.props.savePost(dateData);
     }
