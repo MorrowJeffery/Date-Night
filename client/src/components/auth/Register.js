@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import './register.css';
 
 class Register extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class Register extends Component {
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      window.location.href("/dashboard");
     }
   }
 
@@ -59,14 +60,11 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div className="row">
+      <div className="container divcontainer">
+        <div className="row testdiv">
           <div className="col s8 offset-s2">
-            <Link to="/" className="btn">
-              Back to home
-            </Link>
 
-            <div className="col">
+            <div className="col firstcontentholder">
               <h4>
                 <b>Register</b> below
               </h4>
@@ -79,7 +77,7 @@ class Register extends Component {
 
             <form noValidate onSubmit={this.onSubmit}>
 
-              <div className="form-group col s12">
+              <div className="form-group col s12 registerform">
                 <input
                   onChange={this.onChange}
                   value={this.state.firstName}

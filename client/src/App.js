@@ -8,16 +8,16 @@ import { Provider } from "react-redux";
 import store from "./store";
 
 import AppNav from "./components/Navbar/Navbar";
-import Landing from "./components/layout/Landing";
+import Landing from "./components/landing/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import PostsPage from "./components/postPages/allPostsPage";
-import Dropzone from "./components/imageManipulation/dropzone";
 import savePostPage from "./components/postPages/newPostPage";
 import PostDetail from "./components/postPages/postDetail";
 import MyPosts from "./components/postPages/myPosts";
+import settings from "./components/settings/settings";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -45,7 +45,6 @@ class App extends Component {
         <Router>
           <div className="App">
             <AppNav />
-            <Route exact path="/test" component={Dropzone} />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
@@ -55,6 +54,7 @@ class App extends Component {
               <PrivateRoute exact path="/submitpost" component={savePostPage} />
               <PrivateRoute exact path="/myposts" component={MyPosts} />
               <PrivateRoute path="/post/" component={PostDetail} />
+              <PrivateRoute exact oath="/settings" component={settings} />
             </Switch>
           </div>
         </Router>

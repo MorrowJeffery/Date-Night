@@ -1,11 +1,12 @@
-import { SET_CURRENT_USER, USER_LOADING } from "../actions/types";
+import { SET_CURRENT_USER, USER_LOADING, UPDATE_USER_PW } from "../actions/types";
 
 const isEmpty = require("is-empty");
 
 const initialState = {
   isAuthenticated: false,
   user: {},
-  loading: false
+  loading: false,
+  updateErrors: []
 };
 
 export default function(state = initialState, action) {
@@ -21,6 +22,11 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+    case UPDATE_USER_PW:
+      return {
+        ...state,
+        updateErrors: action.payload
+      }
     default:
       return state;
   }

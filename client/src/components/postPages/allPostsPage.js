@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Jumbotron from "../Jumbotron";
-import { List, ListItem } from "../List";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPosts, setCurrentPost } from "../../actions/postActions";
@@ -23,7 +21,6 @@ class allPosts extends Component {
           <div className="row">
             <div className="landing-copy col s12">
             <div className="divcol1">
-                  <h1>Posts: </h1>
                 {this.props.posts.length ? (
                   <ul>
                     {this.props.posts.map((post) => (

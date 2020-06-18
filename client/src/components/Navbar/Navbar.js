@@ -14,30 +14,46 @@ class AppNav extends Component {
     this.props.logoutUser();
   };
 
-
   render() {
-    return (
-      <Navbar className="navMax" expand="lg">
-        <Navbar.Brand className="brandLogoName" href="/dashboard">Date Night</Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/dashboard">Home</Nav.Link>
-            <NavDropdown title="Settings" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Go To My Settings</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={this.onLogoutClick}>Logout</NavDropdown.Item>
-            </NavDropdown>
-            <NavDropdown title="Posts" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/posts">See All Posts</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">See Saved Posts</NavDropdown.Item>
-              <NavDropdown.Item href="/myposts">My Posts</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/submitpost">Submit A Post</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    );
+
+    if (this.props.auth.isAuthenticated === true) {
+      return (
+        <Navbar className="navMax">
+          <Navbar.Brand className="brandLogoName" href="/dashboard">Date Night</Navbar.Brand>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/dashboard">Home</Nav.Link>
+              <NavDropdown title="Settings" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/settings">Go To My Settings</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={this.onLogoutClick}>Logout</NavDropdown.Item>
+              </NavDropdown>
+              <NavDropdown title="Posts" id="basic-nav-dropdown">
+                <NavDropdown.Item href="/posts">See All Posts</NavDropdown.Item>
+                {/* <NavDropdown.Item href="#action/3.2">See Saved Posts</NavDropdown.Item> */}
+                <NavDropdown.Item href="/myposts">My Posts</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/submitpost">Submit A Post</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      );
+    }
+    else {
+      return (
+        <Navbar className="navMax">
+          <Navbar.Brand className="brandLogoName" href="/">Date Night</Navbar.Brand>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/register">Register</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      )
+    }
+  
   }
 }
 

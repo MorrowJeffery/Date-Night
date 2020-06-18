@@ -1,0 +1,33 @@
+.btn {
+    border: 0px;
+}
+
+.btn:hover {
+    background-color: #6e0a4b;
+}
+
+.registerform {
+    display: block;
+    text-align: center;
+}
+
+label{
+    display: inline-block;
+    width: 100px;
+    text-align: left;
+    margin-left: 1%;
+}
+input {
+  display: inline-block;
+}
+
+.firstcontentholder {
+    margin-top: 2%;
+}
+
+@media screen and (min-width : 1204px)
+{
+   .firstcontentholder {
+       margin-top: 4%;
+   }
+}

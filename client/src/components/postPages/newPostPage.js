@@ -41,7 +41,11 @@ class newPost extends Component {
           this.props.updateUserPost(this.props.auth.user.id, this.props.postData.successfulPost)
         }
         return(
-          <h1>Posted Successfully</h1>
+          <div>
+              <h1>Posted Successfully</h1>
+              <Link to="/posts">Go to posts</Link>
+          </div>
+
         )
       }
 

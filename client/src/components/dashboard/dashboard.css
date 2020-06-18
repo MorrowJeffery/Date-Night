@@ -1,13 +1,13 @@
 .mainboxdiv {
     text-align: center;
     background: #0b7d99;
-    margin-top: 3%;
+    margin-top: 5%;
     margin-bottom: 3%;
     padding: 20px;
 }
 
 .container {
-    background-color: #68749736;
+    background-color: white;;
 }
 
 .logoutbtn, .viewpostsbtn {

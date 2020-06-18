@@ -12,7 +12,6 @@ class PostDetail extends Component {
     }
 
   render() {
-    const { user } = this.props.auth;
     return (
         <div className="container">
           <div className="row">

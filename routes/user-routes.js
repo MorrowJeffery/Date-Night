@@ -55,6 +55,38 @@ router.post("/api/register", (req, res) => {
   });
 });
 
+// @route PUT api/user/update/id/newpw
+// @desc changes user password
+// @access Private
+router.put("/api/user/update/:userID/:newPW/:oldPW", (req, res) => {
+
+  const _id = req.params.userID;
+  User.findOne({ _id }).then(user => {
+    // Check if user exists
+    if (!user) {
+      return res.json({ error: "Account error. Try again later", success: false });
+    }
+
+    bcrypt.compare(req.params.oldPW, user.password).then(isMatch => {
+      if (isMatch) {
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(req.params.newPW, salt, (err, hash) => {
+            if (err) throw err;
+      
+            User.updateOne({ _id: req.params.userID }, {$set: {password: hash}})
+            .then(dbModel => res.json({ error: "Password changed successfully", success: true }))
+            .catch(err => res.json({ error: "Unknown error occured", success: false }));
+          });
+        })
+        
+      } else {
+        return res
+          .json({ error: "Password incorrect", success: false });
+      }
+    });
+  })
+});
+
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public

@@ -17,7 +17,6 @@ class DropzoneForm extends React.Component {
     }
 
     onImageDrop(files) {
-      console.log(files);
         this.setState({
           uploadedFile: files[0]
         });

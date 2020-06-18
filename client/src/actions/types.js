@@ -8,3 +8,4 @@ export const GET_POST = "GET_POST";
 export const SET_CURRENT_POST = "SET_CURRENT_POST";
 export const GET_MY_POSTS = "GET_MY_POSTS";
 export const UPDATE_USER_POSTS = "UPDATE_USER_POSTS";
+export const UPDATE_USER_PW = "UPDATE_USER_PW";

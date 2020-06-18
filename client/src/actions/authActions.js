@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING, UPDATE_USER_PW } from "./types";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -16,6 +16,17 @@ export const registerUser = (userData, history) => dispatch => {
       })
     );
 };
+
+export const updatePW = (userID, newPW, oldPW) => dispatch => {
+  axios
+  .put(`/api/user/update/${userID}/${newPW}/${oldPW}`)
+  .then(data => {
+      dispatch({
+          type: UPDATE_USER_PW,
+          payload: data.data
+      })
+  })
+}
 
 // Login - get user token
 export const loginUser = userData => dispatch => {

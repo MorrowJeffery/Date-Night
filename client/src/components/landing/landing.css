@@ -1,0 +1,57 @@
+.landingbtn {
+    background-color: #61e5ee;
+    margin: 5px;
+    border: 0px;
+    color: black;
+}
+
+.landingbtn:hover {
+    background-color: #6e0a4b;
+}
+
+.divcontainer {
+    background-color: blue;
+}
+
+.maindiv {
+    text-align: center;
+    background-color: #06bec4;
+    margin-top: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.tagline {
+    font-style: italic;
+}
+
+.dnaname {
+
+}
+
+@media screen and (min-width : 550px)
+{
+    .tagline {
+    
+    }
+    
+    .dnaname {
+    
+    }
+    .landingbtn {
+
+    }
+}
+@media screen and (min-width : 1204px)
+{
+    .tagline {
+    
+    }
+    
+    .dnaname {
+    
+    }
+    .landingbtn {
+
+    }
+}
