@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Jumbotron from "../Jumbotron";
-import { List, ListItem } from "../List";
+import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setCurrentPost, getMyPosts, deletePost } from "../../actions/postActions";
+import './posts.css';
 
 class MyPosts extends Component {
 
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+  onViewPostClick = e => {
+    e.preventDefault();
+    this.props.history.push("/posts")  };
+
   componentDidMount() {
-      console.log("started ")
       this.props.getMyPosts(this.props.auth.user.id);      
     }
 
@@ -23,31 +30,59 @@ class MyPosts extends Component {
   }
 
   render() {
+    const { user } = this.props.auth;
+
     return (
-        <div className="container">
+        <div className="container" style={{padding: "5px"}}>
+          <div className="container" style={{padding: "5px"}}>
+            <div className="row">
+              <div className="landing-copy col s12 mainboxdiv">
+                <h4>
+                  <b>Hey there,</b> {user.firstName}
+                  <p className="">
+                    Ready for some inspiration?
+                  </p>
+                </h4>
+                <button
+                  onClick={this.onLogoutClick}
+                  className="btn upload"
+                >
+                  Logout
+                </button>
+                <button
+                  onClick={this.onViewPostClick}
+                  className="btn upload"
+                >
+                  View Posts
+                </button>
+                <Link to="/submitpost"><button className="btn upload">Upload</button></Link>
+              </div>
+            </div>
+          </div>
           <div className="row">
             <div className="landing-copy col s12">
-            <Link to="/dashboard">Back To Dashboard</Link>
             <div className="col">
-              <Jumbotron>
-                  <h1>Posts: </h1>
-                </Jumbotron>
+              <h3 className="mypostheader">My Posts</h3>
+              <hr/>
                 {this.props.posts.length ? (
-                  <List>
+                  <ul>
                     {this.props.posts.map((post) => (
-                      <ListItem key={`${post._id}`} >
-                          <div className="container">
-                            <strong>
+                      <>
+                      <li className="postitem" key={`${post._id}`} >
+                          <div className="container postcontainer" style={{padding: "5px"}}>
+                            <strong className="postname">
                                 {post.post_name}
                             </strong>
                           </div>
-                          <Link to="/post/test" onClick={ () => {this.onPostClick(post._id)}}><img src={post.image} alt="" /></Link>
-                          <p> {post.poster_name} </p>
+                          <Link to="/post/test" onClick={ () => {this.onPostClick(post._id)}}><img className="postimage" src={post.image} alt="" /></Link>
+                          <p className="postername"> {post.poster_name} </p>
                           <p>{post.description}</p>
-                          <h1 className="delx" onClick={ () => {this.onXClick(post._id)}}>X</h1>
-                      </ListItem>
+                          <button className="delx delbtn" onClick={ () => {this.onXClick(post._id)}}>Delete Post</button>
+                      </li>
+                      <hr/>
+                      </>
                     ))}
-                  </List>
+                  </ul>
                 ) : (
                   <h3>No Results to Display</h3>
                 )}
@@ -71,5 +106,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getMyPosts, setCurrentPost, deletePost }
+  { getMyPosts, setCurrentPost, deletePost, logoutUser }
 )(MyPosts);

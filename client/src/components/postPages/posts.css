@@ -1,45 +1,79 @@
+.mainboxdiv {
+    text-align: center;
+    background: #0b7d99;
+    margin-top: 5%;
+    margin-bottom: 3%;
+    padding: 20px;
+}
+
+.allpostsitem {
+    margin-bottom: 15px;
+}
+
+.container {
+    background-color: white;;
+}
+
+button, .upload {
+    background-color: #1ca6ad;
+    margin: 5px;
+    border: 0px;
+    color: white;
+}
+
+.delbtn {
+    margin: 5px;
+    padding: 5px;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.upload:hover, .delbtn:hover {
+    background-color: #6e0a4b;
+    color: white;
+}
+
+
+
+
 ul {
     list-style-type: none;
     padding-left: 0px
 }
 
-.eachpostbox {
-    background-color: #0b7d9970;
-    margin: 1%;;
-    text-align: left;
+.container {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
-.nameholderdiv {
-    margin: 1%;
-}
-
-.outerbox {
-    background-color: rgba(128, 128, 128, 0.192);
-    align-items: center;
-
-}
-
-.divcol1 {
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 22px;
-}
-
-.backtobtn {
-    text-align: left;
-    float: left;
-}
-
-.desctext {
-    margin-left: 3%;
-    margin-top: 1%;
+.postcontainer {
+    padding: 0px;
 }
 
 .postername {
-    margin-top: 1%;
-    margin-left: 1%;
+    margin-right: 180px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.postname {
+    font-weight: bolder;
+}
+
+.postitem {
+    margin-bottom: 10px;
 }
 
 .postimage {
-    margin-left: 5%;
+    width: 250px;
 }
+
+@media only screen and (min-width: 700px) {
+    .postimage {
+        width: 500px;
+    }
+    .postername {
+        margin-right: 430px;
+        font-size: 12px;
+    }
+  }

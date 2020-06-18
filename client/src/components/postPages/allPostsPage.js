@@ -21,25 +21,24 @@ class allPosts extends Component {
           <div className="row">
             <div className="landing-copy col s12">
             <div className="divcol1">
+            <h3 className="mypostheader">All Posts</h3>
+              <hr/>
                 {this.props.posts.length ? (
                   <ul>
                     {this.props.posts.map((post) => (
-                      <li key={`${post._id}`} >
-                          <div className="container eachpostbox">
-                          <div className="nameholderdiv">
-                                <strong>
-                                    {post.post_name}
-                                </strong>
-                              </div>
-                            <div className="row">
-                              <Link to="/post/test" onClick={ () => {this.onPostClick(post._id)}}><img className="postimage" src={post.image} alt="" /></Link>
-                              <p className="desctext"> {post.description} </p>
-                            </div>
-                            <div className="row">
-                              <p className="postername">{post.poster_name}</p>
-                            </div>
+                      <>
+                      <li className="postitem" key={`${post._id}`} >
+                          <div className="container postcontainer" style={{padding: "5px"}}>
+                            <strong className="postname">
+                                {post.post_name}
+                            </strong>
                           </div>
+                          <Link to="/post/detail" onClick={ () => {this.onPostClick(post._id)}}><img className="postimage" src={post.image} alt="" /></Link>
+                          <p className="postername"> {post.poster_name} </p>
+                          <p className="allpostsitem">{post.description}</p>
                       </li>
+                      <hr/>
+                      </>
                     ))}
                   </ul>
                 ) : (

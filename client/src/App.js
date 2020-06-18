@@ -12,7 +12,6 @@ import Landing from "./components/landing/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
 import PostsPage from "./components/postPages/allPostsPage";
 import savePostPage from "./components/postPages/newPostPage";
 import PostDetail from "./components/postPages/postDetail";
@@ -49,10 +48,9 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/dashboard" component={MyPosts} />
               <PrivateRoute exact path="/posts" component={PostsPage} />
               <PrivateRoute exact path="/submitpost" component={savePostPage} />
-              <PrivateRoute exact path="/myposts" component={MyPosts} />
               <PrivateRoute path="/post/" component={PostDetail} />
               <PrivateRoute exact oath="/settings" component={settings} />
             </Switch>

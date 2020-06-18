@@ -1,0 +1,27 @@
+.detailcontainer {
+    background-color: #0b7d99;
+    margin: 50px;
+}
+
+.backtoposts {
+    color: white;
+    border-color: black;
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin-top: 15px;
+}
+
+.poster {
+    margin-right: 410px;
+    font-weight: bold;
+}
+
+img {
+    border-radius: 5px;
+}
+
+.backtoposts:hover {
+    color: white;
+}

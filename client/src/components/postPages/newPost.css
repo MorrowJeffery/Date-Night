@@ -8,19 +8,23 @@
     padding-bottom: 5%;
 }
 
+.formholderdiv {
+    background-color: white;
+}
+
 .submitbutton {
     margin: 5px;
     padding: 10px;
-    border: 5px;
-    color: black;
-    border-color: black;
     background-color: #1ca6ad;
     font-weight: bold;
     font-size: small;
+    color: white;
+    border-radius: 5px;
 }
 .submitbutton:hover {
     background-color: #6e0a4b;
     color: white;
+    text-decoration: none;
 }
 
 .submitlabel {

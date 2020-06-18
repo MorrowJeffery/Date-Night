@@ -1,6 +1,10 @@
-.container {
+.logincontainer {
     text-align: center;
-    background: yellow;
+    padding-bottom: 0px;
+}
+
+.logincontent {
+    margin-top: 25px;
 }
 
 .row1 {
@@ -10,4 +14,20 @@
 
 .uplabel {
     margin-left: 1%;
+}
+
+.loginbtn {
+    background-color: #1ca6ad;
+    margin: 5px;
+    border: 0px;
+    color: white;
+}
+
+.register {
+    color: white;
+}
+
+.register:hover {
+    color: white;
+    
 }

@@ -53,8 +53,8 @@ class newPost extends Component {
       
         return(
             <div className="container">
-                <DropZoneForm/>
-                <div>
+                <DropZoneForm className="dropholder" />
+                <div className="formholderdiv">
                   <Form>
                       <Form.Group>
                           <Form.Label>Date Name</Form.Label>

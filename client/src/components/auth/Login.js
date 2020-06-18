@@ -54,18 +54,18 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
+      <div className="container logincontainer" style={{backgroundColor: "#0b7d99"}}>
         <div className="row row1">
           <div className="col s8 offset-s2">
-            <div className="col s12">
+            <div className="col s12 logincontent">
               <h4>
-                <b>Login</b> below
+                <b className="">Login</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/register">Register</Link>
+                Don't have an account? <Link className="register" to="/register">Register</Link>
               </p>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
+            <form style={{alignContent: "center", float: "none", clear: "both"}} noValidate onSubmit={this.onSubmit}>
               <div className="form-group col s12">
                 <input
                   onChange={this.onChange}
@@ -104,7 +104,7 @@ class Login extends Component {
               <div className="col s12" >
                 <button
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn loginbtn"
                 >
                   Login
                 </button>

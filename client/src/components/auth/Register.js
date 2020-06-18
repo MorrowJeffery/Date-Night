@@ -60,11 +60,11 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container divcontainer">
-        <div className="row testdiv">
+      <div className="container divcontainer" style={{backgroundColor: "#0b7d99", paddingBottom: "10px"}}>
+        <div className="row">
           <div className="col s8 offset-s2">
 
-            <div className="col firstcontentholder">
+            <div className="col firstcontentholder" >
               <h4>
                 <b>Register</b> below
               </h4>
@@ -84,11 +84,11 @@ class Register extends Component {
                   error={errors.name}
                   id="firstName"
                   type="text"
-                  className={classnames("", {
+                  className={classnames("inlineitem", {
                     invalid: errors.firstName
                   })}
                 />
-                <label htmlFor="firstName">First Name</label>
+                <label className="labelitem" htmlFor="firstName">First Name</label>
                 <span className="red-text">{errors.firstName}</span>
               </div>
 
@@ -99,11 +99,11 @@ class Register extends Component {
                   error={errors.lastName}
                   id="lastName"
                   type="text"
-                  className={classnames("", {
+                  className={classnames("inlineitem", {
                     invalid: errors.lastName
                   })}
                 />
-                <label htmlFor="lastName">Last Name</label>
+                <label className="labelitem" htmlFor="lastName">Last Name</label>
                 <span className="red-text">{errors.lastName}</span>
               </div>
 
@@ -114,11 +114,11 @@ class Register extends Component {
                   error={errors.email}
                   id="email"
                   type="email"
-                  className={classnames("", {
+                  className={classnames("inlineitem", {
                     invalid: errors.email
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <label className="labelitem" htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
               </div>
 
@@ -129,11 +129,11 @@ class Register extends Component {
                   error={errors.age}
                   id="age"
                   type="text"
-                  className={classnames("", {
+                  className={classnames("inlineitem", {
                     invalid: errors.age
                   })}
                 />
-                <label htmlFor="age">Age</label>
+                <label className="labelitem" htmlFor="age">Age</label>
                 <span className="red-text">{errors.age}</span>
               </div>
 
@@ -144,11 +144,11 @@ class Register extends Component {
                   error={errors.username}
                   id="username"
                   type="text"
-                  className={classnames("", {
+                  className={classnames("inlineitem", {
                     invalid: errors.username
                   })}
                 />
-                <label htmlFor="username">Username</label>
+                <label className="labelitem" htmlFor="username">Username</label>
                 <span className="red-text">{errors.username}</span>
               </div>
 
@@ -159,11 +159,11 @@ class Register extends Component {
                   error={errors.password}
                   id="password"
                   type="password"
-                  className={classnames("", {
+                  className={classnames("inlineitem", {
                     invalid: errors.password
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <label className="labelitem" htmlFor="password">Password</label>
                 <span className="red-text">{errors.password}</span>
               </div>
 
@@ -174,11 +174,11 @@ class Register extends Component {
                   error={errors.password2}
                   id="password2"
                   type="password"
-                  className={classnames("", {
+                  className={classnames("inlineitem", {
                     invalid: errors.password2
                   })}
                 />
-                <label htmlFor="password2">Confirm Password</label>
+                <label className="labelitem" htmlFor="password2">Confirm Password</label>
                 <span className="red-text">{errors.password2}</span>
               </div>
 

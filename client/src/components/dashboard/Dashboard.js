@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from 'react-router-dom';
 import { logoutUser } from "../../actions/authActions";
 import { getPosts } from "../../actions/postActions";
 import './dashboard.css';
@@ -39,6 +40,7 @@ class Dashboard extends Component {
           >
             View Posts
           </button>
+          <Link><button>Upload</button></Link>
         </div>
       </div>
     </div>

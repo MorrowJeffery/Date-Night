@@ -1,11 +1,13 @@
-.dropzonebox {
-    background-color: #1ca6ad;
-}
-
 .dropzonetext {
     color: black;
 }
 
 .dropzonetext:hover {
     color: white;
+}
+
+.jumbotron {
+    background-color: #0b7d99;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }

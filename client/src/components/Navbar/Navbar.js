@@ -5,6 +5,8 @@ import './navbar.css';
 import { logoutUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import brandImage from './DateNightlogo7.png';
+import { Link } from 'react-router-dom';
 
 
 class AppNav extends Component {
@@ -19,19 +21,18 @@ class AppNav extends Component {
     if (this.props.auth.isAuthenticated === true) {
       return (
         <Navbar className="navMax">
-          <Navbar.Brand className="brandLogoName" href="/dashboard">Date Night</Navbar.Brand>
+          <Navbar.Brand className="brandLogoName" href="/dashboard"><img className="logo" alt="logo" src={brandImage}></img></Navbar.Brand>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/dashboard">Home</Nav.Link>
-              <NavDropdown title="Settings" id="basic-nav-dropdown">
+              <Nav.Link className="navitem" href="/dashboard">Home</Nav.Link>
+              <NavDropdown className="navitem" title="Settings" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/settings">Go To My Settings</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={this.onLogoutClick}>Logout</NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="Posts" id="basic-nav-dropdown">
+              <NavDropdown className="navitem" title="Posts" id="basic-nav-dropdown">
                 <NavDropdown.Item href="/posts">See All Posts</NavDropdown.Item>
                 {/* <NavDropdown.Item href="#action/3.2">See Saved Posts</NavDropdown.Item> */}
-                <NavDropdown.Item href="/myposts">My Posts</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="/submitpost">Submit A Post</NavDropdown.Item>
               </NavDropdown>
@@ -43,11 +44,10 @@ class AppNav extends Component {
     else {
       return (
         <Navbar className="navMax">
-          <Navbar.Brand className="brandLogoName" href="/">Date Night</Navbar.Brand>
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Brand className="brandLogoName" href="/dashboard"><img className="logo" alt="logo" src={brandImage}></img></Navbar.Brand>          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/login">Login</Nav.Link>
-              <Nav.Link href="/register">Register</Nav.Link>
+              <Nav.Link ><Link className="navitem" to="/login">Login</Link></Nav.Link>
+              <Nav.Link ><Link className="navitem" to="/register">Register</Link></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

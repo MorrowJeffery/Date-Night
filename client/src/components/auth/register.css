@@ -2,23 +2,16 @@
     border: 0px;
 }
 
+.labelitem {
+    margin-left: 10px;
+}
+
+.divcontainer {
+    margin: 15px;
+}
+
 .btn:hover {
     background-color: #6e0a4b;
-}
-
-.registerform {
-    display: block;
-    text-align: center;
-}
-
-label{
-    display: inline-block;
-    width: 100px;
-    text-align: left;
-    margin-left: 1%;
-}
-input {
-  display: inline-block;
 }
 
 .firstcontentholder {
