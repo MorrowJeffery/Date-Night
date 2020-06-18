@@ -65,12 +65,14 @@ ul {
 }
 
 .postimage {
-    width: 250px;
+    max-width: 250px;
+    max-height: 250px;
 }
 
 @media only screen and (min-width: 700px) {
     .postimage {
-        width: 500px;
+        max-width: 500px;
+        max-height: 500px;
     }
     .postername {
         margin-right: 430px;

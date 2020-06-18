@@ -6,6 +6,11 @@
     color: white;
 }
 
+.importedimg {
+    max-width: 250px;
+    max-height: 250px;
+}
+
 .jumbotron {
     background-color: #0b7d99;
     margin-top: 15px;

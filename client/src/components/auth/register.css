@@ -25,6 +25,10 @@ input, .inlineitem {
     margin-top: 2%;
 }
 
+.divcontainer {
+    margin-top: 25px;
+}
+
 @media screen and (min-width : 1204px)
 {
    .firstcontentholder {

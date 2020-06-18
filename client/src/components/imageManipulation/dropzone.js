@@ -71,7 +71,7 @@ class DropzoneForm extends React.Component {
         else {
             return (
                 <div>
-                    <img src={this.props.savedPic} alt=""/>
+                    <img className="importedimg" src={this.props.savedPic} alt=""/>
                 </div>
             )
         }
