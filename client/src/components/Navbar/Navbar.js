@@ -47,7 +47,7 @@ class AppNav extends Component {
           <Navbar.Brand className="brandLogoName" href="/dashboard"><img className="logo" alt="logo" src={brandImage}></img></Navbar.Brand>          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link ><Link className="navitem" to="/login">Login</Link></Nav.Link>
-              <Nav.Link ><Link className="navitem" to="/register">Register</Link></Nav.Link>
+              <Nav.Link ><Link className="navitem" to="/register">Register</Link></Nav.Link>x`
             </Nav>
           </Navbar.Collapse>
         </Navbar>
